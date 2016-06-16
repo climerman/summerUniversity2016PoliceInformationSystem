@@ -1,0 +1,33 @@
+#+TITLE: Assignment
+#+AUTHOR:
+#+LANGUAGE:
+
+
+* Find siblings
+
+It must be possible to retrieve all persons from the database by lastname.
+
+Get request URL:
+: lastname/<lastname>
+
+* Register violation 
+
+It must be possible to register law violations of the person.
+
+
+Post request URL:
+: violation 
+
+Post parameters:
+| parameter | value                            |
+|-----------+----------------------------------|
+| SSN       | violator SSN                     |
+| fine      | amount fined                     |
+| location  | city where violation occurred    |
+| law       | reference to law that was broken |
+
+* person has criminal record ?
+It must be possible to query system for given person, if he has any criminal
+records in the past.
+* 3 persons with largest total unpaid fines
+Provide the list of 3 persons who have most unpaid dept.

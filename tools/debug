@@ -1,0 +1,38 @@
+#!/bin/bash
+
+if [ "$1" != "T" ]; then gnome-terminal -e "'$0' T"; exit; fi
+. extraTools
+
+# This is a helper bash script that starts current Java project in debug mode
+# with JRebel attached. It also opens its own terminal window, so you can run
+# this script by simply clicking on it in file navigator.
+#
+#
+# Script assumes:
+#
+#    + GNU OS
+#    + Gnome workspace
+#    + JRebel is installed in /opt/jrebel
+#
+
+
+cd "${0%/*}"
+cd ..
+
+# iceweasel 127.0.0.1:8080 &
+
+
+while true; do
+
+    # clear screen
+    printf "\033c"
+
+    # define Maven options
+    export MAVEN_OPTS="-Xmx4000m"
+
+    mvn clean spring-boot:run -U
+
+    echo "press ENTER to reload application"
+    read
+
+done
